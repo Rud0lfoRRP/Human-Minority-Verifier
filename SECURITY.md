@@ -2,7 +2,7 @@
 
 ## Status
 
-The first Human Minority public repository is an **Early Source Drop**, not a supported production release and not a complete sandbox product.
+The first Human Minority Verifier public repository is an **Early Source Drop**, not a supported production release and not a complete sandbox product.
 
 The public slice is intentionally limited to inspectable trust-model primitives, provider-neutral contracts and one local exact-artifact verification vertical. It does not expose the private operational execution stack as a supported public security boundary.
 
@@ -27,7 +27,7 @@ Unless a later release says otherwise, do not assume the public artifact provide
 
 ## Fail-closed direction for future confined execution
 
-The shipped exact-artifact vertical does not execute candidate-controlled code. A future Human Minority profile that does execute untrusted repository code must stop or produce an explicit `INCONCLUSIVE`/equivalent state when its required verifier/confinement boundary cannot be established. It must not silently fall back to executing candidate-controlled code with ambient maintainer/verifier authority.
+The shipped exact-artifact vertical does not execute candidate-controlled code. A future Human Minority Verifier profile that does execute untrusted repository code must stop or produce an explicit `INCONCLUSIVE`/equivalent state when its required verifier/confinement boundary cannot be established. It must not silently fall back to executing candidate-controlled code with ambient maintainer/verifier authority.
 
 The supported profile must document its exact operating-system/container/runtime assumptions and prove the corresponding filesystem, environment/secret, network, child-process and resource boundaries.
 

@@ -1,18 +1,18 @@
-# Human Minority
+# Human Minority Verifier
 
 > **More agents. Same veto.**
 >
 > **Claim is not proof.**
 
-[![Public CI](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-ci.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-ci.yml)
-[![Public Integrity](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-integrity.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-integrity.yml)
-[![CodeQL](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-codeql.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-codeql.yml)
-[![OpenSSF Scorecard](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-scorecard.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority/actions/workflows/public-scorecard.yml)
+[![Public CI](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-ci.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-ci.yml)
+[![Public Integrity](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-integrity.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-integrity.yml)
+[![CodeQL](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-codeql.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-codeql.yml)
+[![OpenSSF Scorecard](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-scorecard.yml/badge.svg)](https://github.com/Rud0lfoRRP/Human-Minority-Verifier/actions/workflows/public-scorecard.yml)
 [![License: PolyForm Perimeter 1.0.1](https://img.shields.io/badge/license-PolyForm%20Perimeter%201.0.1-informational)](LICENSE)
 
-Human Minority is a **deterministic, source-available verification layer for AI coding agents and agentic coding workflows**.
+Human Minority Verifier is a **deterministic, source-available verification layer for AI coding agents and agentic coding workflows**.
 
-It is built around a simple rule: an agent saying *"tests passed"* or *"ready to merge"* is still only a claim. Human Minority binds verification to an exact candidate, explicit evidence and verifier results, then produces a decision without giving the producing agent authority to accept or merge its own work.
+It is built around a simple rule: an agent saying *"tests passed"* or *"ready to merge"* is still only a claim. Human Minority Verifier binds verification to an exact candidate, explicit evidence and verifier results, then produces a decision without giving the producing agent authority to accept or merge its own work.
 
 **Current status:** early development. The repository is still published as an `EARLY_SOURCE_DROP`, but the public V1 CLI is installable and runnable today. Private execution, provider orchestration and deployment machinery are outside this public boundary.
 
@@ -21,8 +21,8 @@ It is built around a simple rule: an agent saying *"tests passed"* or *"ready to
 Requires Python **3.12–3.14**.
 
 ```bash
-git clone https://github.com/Rud0lfoRRP/Human-Minority.git
-cd Human-Minority
+git clone https://github.com/Rud0lfoRRP/Human-Minority-Verifier.git
+cd Human-Minority-Verifier
 
 python -m pip install --no-deps .
 
@@ -109,7 +109,7 @@ The bundle binds:
 - trusted verifier IDs;
 - verifier result envelopes bound to the same candidate and claim.
 
-Human Minority recomputes the candidate SHA-256 from the actual bytes, rejects missing, extra, duplicate or mismatched results, rejects producer/verifier role collapse, and passes only the required result set into canonical acceptance composition.
+Human Minority Verifier recomputes the candidate SHA-256 from the actual bytes, rejects missing, extra, duplicate or mismatched results, rejects producer/verifier role collapse, and passes only the required result set into canonical acceptance composition.
 
 ### See the veto reject a bad bundle
 
@@ -146,11 +146,11 @@ The public CLI uses the product exit taxonomy:
 
 A negative verification result is not treated as a CLI crash.
 
-## Why Human Minority exists
+## Why Human Minority Verifier exists
 
 AI coding agents can write code, run tools and report success. None of that makes their report authoritative.
 
-Human Minority keeps four things separate:
+Human Minority Verifier keeps four things separate:
 
 1. **Claim** — what the producing agent says happened.
 2. **Evidence and verification** — what can be independently checked against the exact candidate.
@@ -206,7 +206,7 @@ See [PUBLIC_BOUNDARY.md](PUBLIC_BOUNDARY.md) for the exact exported capability b
 
 ## Public artifact and provenance
 
-Human Minority is exported from a separate canonical upstream through an explicit allowlist and deterministic manifest.
+Human Minority Verifier is exported from a separate canonical upstream through an explicit allowlist and deterministic manifest.
 
 The public repository contains only the selected artifact, not the private development history.
 
@@ -221,7 +221,7 @@ Do not infer security guarantees from design intent. Only properties enforced by
 
 ### Why the public code still uses `seed.app`
 
-Human Minority is the public product and CLI surface. The verification primitives underneath it are exported from the canonical Seed upstream and intentionally retain their original `seed.app` package paths.
+Human Minority Verifier is the public verifier and CLI surface of the Human Minority product. The verification primitives underneath it are exported from the canonical Seed upstream and intentionally retain their original `seed.app` package paths.
 
 Keeping those paths preserves the identity of the published implementation instead of copying the same logic into a renamed demo-only package. The thin `human_minority` package provides the public CLI and artifact-facing interface around that exported capability set.
 
@@ -241,7 +241,7 @@ See [SECURITY.md](SECURITY.md).
 
 ## License
 
-Human Minority is **source-available, not OSI open source**.
+Human Minority Verifier is **source-available, not OSI open source**.
 
 The repository is licensed under **PolyForm Perimeter 1.0.1**. The shipped [LICENSE](LICENSE) file controls; this README is not a substitute for the license text.
 

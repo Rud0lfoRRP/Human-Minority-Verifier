@@ -16,6 +16,18 @@ class AcceptanceBindingError(ValueError):
     """Verification results are not exactly bound to the expected obligation."""
 
 
+def _result_identity_material(result: VerificationResult) -> dict[str, object]:
+    """Return the exact ordered result material that acceptance actually consumes."""
+
+    return {
+        "result_id": result.result_id,
+        "claim_id": result.claim_id,
+        "check_id": result.check_id,
+        "status": result.status.value,
+        "evidence_ids": list(result.evidence_ids),
+    }
+
+
 def decide_acceptance(
     *,
     claim_id: str,
@@ -61,9 +73,10 @@ def decide_acceptance(
 
     material = {
         "claim_id": claim_id,
-        "outcome": outcome.value,
         "plan_id": plan_id,
-        "result_ids": [result.result_id for result in ordered],
+        "expected_check_ids": list(expected_check_ids),
+        "outcome": outcome.value,
+        "results": [_result_identity_material(result) for result in ordered],
     }
     return AcceptanceDecision(
         decision_id=f"control:{canonical_sha256(material)}",

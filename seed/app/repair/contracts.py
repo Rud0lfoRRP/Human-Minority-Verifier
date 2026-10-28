@@ -7,6 +7,7 @@ from datetime import datetime
 from decimal import Decimal
 from enum import Enum
 from pathlib import PurePosixPath
+import unicodedata
 
 from seed.app.core.errors import CommandError
 from seed.app.source.portable_paths import portable_key
@@ -303,6 +304,10 @@ def _require_unique_paths(values: tuple[str, ...], name: str, *, allow_empty: bo
     if not values and not allow_empty:
         raise ValueError(f"{name} must not be empty")
     normalized = tuple(normalize_repo_path(value) for value in values)
+    # Scope matching is exact-spelling (Unicode aliases are rejected), and canonical
+    # Seed records carry NFC; an NFD scope path could never match its own changes.
+    if any(unicodedata.normalize("NFC", value) != value for value in normalized):
+        raise ValueError(f"{name} must be NFC-normalized")
     try:
         portable = tuple(portable_key(value) for value in normalized)
     except CommandError as exc:
