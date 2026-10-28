@@ -1,11 +1,11 @@
 User-agent: *
-Allow: /Human-Minority/
-Disallow: /Human-Minority/.github/
-Disallow: /Human-Minority/human_minority/
-Disallow: /Human-Minority/seed/
-Disallow: /Human-Minority/tests/
-Disallow: /Human-Minority/tools/
+Allow: /Human-Minority-Verifier/
+Disallow: /Human-Minority-Verifier/.github/
+Disallow: /Human-Minority-Verifier/human_minority/
+Disallow: /Human-Minority-Verifier/seed/
+Disallow: /Human-Minority-Verifier/tests/
+Disallow: /Human-Minority-Verifier/tools/
 
-Sitemap: https://rud0lforrp.github.io/Human-Minority/sitemap.xml
+Sitemap: https://rud0lforrp.github.io/Human-Minority-Verifier/sitemap.xml
 
-# Pages redeploy 2026-10-01
+# Pages redeploy 2026-10-28
