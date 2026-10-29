@@ -1,8 +1,8 @@
 # Contributing — Early Source Drop
 
-Thank you for taking the time to inspect Human Minority.
+Thank you for taking the time to inspect Human Minority Verifier.
 
-Human Minority is currently in **early development**. The first public repository is intended for transparency, technical feedback and early testing rather than unrestricted upstream code contribution.
+Human Minority Verifier is currently in **early development**. The first public repository is intended for transparency, technical feedback and early testing rather than unrestricted upstream code contribution.
 
 ## What is welcome
 
@@ -30,7 +30,7 @@ Automated dependency-update pull requests are advisory signals only during this 
 
 Please include, where relevant:
 
-- exact Human Minority public revision/tag;
+- exact Human Minority Verifier public revision/tag;
 - Python/runtime/OS version;
 - smallest reproducible input;
 - expected behavior;

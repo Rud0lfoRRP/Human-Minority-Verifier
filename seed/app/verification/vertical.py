@@ -14,6 +14,7 @@ import json
 from pathlib import Path
 import re
 from typing import Mapping, Sequence
+import unicodedata
 
 from seed.app.core.canonical_json import JsonValue, parse_json_bytes
 from seed.app.core.errors import CanonicalJsonError
@@ -21,6 +22,7 @@ from seed.app.core.hashing import canonical_sha256, sha256_hex
 
 from .claims import (
     AcceptanceDecision,
+    AcceptanceOutcome,
     CandidateClaim,
     VerificationResult,
     VerificationStatus,
@@ -114,10 +116,23 @@ class PublicVerticalResult:
         }
 
 
+def _nfc(value: str, name: str) -> str:
+    """Apply the NFC form that ``parse_json_bytes`` gives the file path."""
+
+    normalized = unicodedata.normalize("NFC", value)
+    try:
+        normalized.encode("utf-8", errors="strict")
+    except UnicodeEncodeError as exc:
+        raise PublicVerificationError(
+            f"{name} must contain valid Unicode scalar values"
+        ) from exc
+    return normalized
+
+
 def _text(value: object, name: str) -> str:
     if type(value) is not str or not value:
         raise PublicVerificationError(f"{name} must be a non-empty plain string")
-    return value
+    return _nfc(value, name)
 
 
 def _text_tuple(value: object, name: str) -> tuple[str, ...]:
@@ -125,7 +140,7 @@ def _text_tuple(value: object, name: str) -> tuple[str, ...]:
         raise PublicVerificationError(f"{name} must be a non-empty array")
     if any(type(item) is not str or not item for item in value):
         raise PublicVerificationError(f"{name} must contain non-empty strings")
-    result = tuple(value)
+    result = tuple(_nfc(item, name) for item in value)
     if len(result) != len(set(result)):
         raise PublicVerificationError(f"{name} must be unique")
     return result
@@ -474,7 +489,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 2
 
     _print_json(result.output())
-    return 0
+    # Same taxonomy as the product CLI: 1 is a valid negative outcome, never success.
+    return 0 if result.decision.outcome is AcceptanceOutcome.ACCEPT else 1
 
 
 if __name__ == "__main__":

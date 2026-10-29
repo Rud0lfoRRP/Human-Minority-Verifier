@@ -1,4 +1,4 @@
-# Human Minority Public Boundary — Early Source Drop
+# Human Minority Verifier Public Boundary — Early Source Drop
 
 This document defines the supported boundary of this Early Source Drop.
 
