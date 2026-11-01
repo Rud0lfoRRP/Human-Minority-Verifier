@@ -87,14 +87,15 @@
     section{padding:54px 0;border-top:1px solid var(--line)} h2{font-size:clamp(1.8rem,4vw,3rem);letter-spacing:-.03em;margin:0 0 16px} h3{margin-top:0}.lead{color:var(--muted);max-width:830px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.grid.two{grid-template-columns:repeat(2,1fr)}.grid.three{grid-template-columns:repeat(3,1fr)}.card{border:1px solid var(--line);background:linear-gradient(180deg,#121925,#0f141d);border-radius:14px;padding:20px}.card p,.card li{color:var(--muted)}.card ul{padding-left:20px;margin-bottom:0}.fact strong{display:block;font-size:1.05rem}.fact span{color:var(--muted)}
     .flow{white-space:pre-wrap;background:#080b0f;border:1px solid var(--line);border-radius:14px;padding:20px;overflow:auto;color:#d9e2ef}code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}.quick{background:#080b0f;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:auto}.status{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:5px 10px;color:var(--muted);font-size:.9rem}.note{border-left:3px solid var(--accent);padding:2px 0 2px 16px;color:var(--muted);max-width:850px}.steps{counter-reset:step;display:grid;gap:12px;margin-top:24px}.step{counter-increment:step;border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--panel)}.step::before{content:counter(step);display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#111;font-weight:800;margin-right:10px}.step span{color:var(--muted)}.faq details{border-top:1px solid var(--line);padding:18px 0}.faq details:last-child{border-bottom:1px solid var(--line)}.faq summary{cursor:pointer;font-weight:750}.faq p{color:var(--muted);max-width:850px}footer{padding:40px 0 60px;color:var(--muted);border-top:1px solid var(--line)}
     @media(max-width:800px){.grid,.grid.three{grid-template-columns:1fr 1fr}.grid.two{grid-template-columns:1fr}.hero{padding-top:58px}}@media(max-width:520px){.grid,.grid.three{grid-template-columns:1fr}.navlinks{display:none}}
+      .hero h1 .hero-tagline{display:block;font-size:.52em;line-height:1.12;letter-spacing:-.03em;margin-top:.2em}
   </style>
 </head>
 <body>
-  <header><div class="wrap"><nav><a class="brand" href="./">Human Minority Verifier</a><div class="navlinks"><a href="#today">Today</a><a href="#verify">Verification</a><a href="#boundary">Boundary</a><a href="#faq">FAQ</a><a href="https://github.com/Rud0lfoRRP/Human-Minority-Verifier">GitHub</a></div></nav></div></header>
+  <header><div class="wrap"><nav><a class="brand" href="./">Human Minority Verifier</a><div class="navlinks"><a href="#today">Today</a><a href="#verify">Verification</a><a href="#boundary">Boundary</a><a href="#faq">FAQ</a><a href="https://rud0lforrp.github.io/Human-Minority/">Human Minority</a><a href="https://github.com/Rud0lfoRRP/Human-Minority-Verifier">GitHub</a></div></nav></div></header>
   <main>
     <section class="hero" style="border-top:0"><div class="wrap">
       <div class="eyebrow">Human Minority Verifier · AI coding-agent verification</div>
-      <h1>More agents.<br>Same veto.</h1>
+      <h1>Human Minority Verifier<span class="hero-tagline">More agents. Same veto.</span></h1>
       <p><strong>Human Minority Verifier</strong> is a deterministic, source-available verification layer for AI coding agents and agentic coding workflows. The public V1 does not run a complete autonomous software factory. It provides a portable verification path that binds a producer claim, exact candidate bytes, required checks, trusted verifier IDs and verifier-result envelopes to the same candidate before canonical acceptance composition.</p>
       <p>The rule behind the project is deliberately narrow: an agent saying “tests passed” or “ready to merge” is still only a claim. The public code checks the bindings and decision inputs instead of treating the producing agent's report as authority.</p>
       <div class="claim">Claim is not proof.</div>
@@ -216,6 +217,6 @@ human-minority verify \
       <details><summary>Why does public code still use <code>seed.app</code> paths?</summary><p>Human Minority Verifier is the public verifier and CLI surface of the Human Minority product. The exported verification primitives retain their canonical upstream <code>seed.app</code> package paths instead of being copied into a renamed demo-only implementation.</p></details>
     </div></section>
   </main>
-  <footer><div class="wrap">Human Minority Verifier · deterministic verification for AI coding-agent workflows · <a href="https://github.com/Rud0lfoRRP/Human-Minority-Verifier">GitHub repository</a> · early development</div></footer>
+  <footer><div class="wrap">Human Minority Verifier · public verification component of <a href="https://rud0lforrp.github.io/Human-Minority/">Human Minority</a> · <a href="https://github.com/Rud0lfoRRP/Human-Minority-Verifier">GitHub repository</a> · early development</div></footer>
 </body>
 </html>
